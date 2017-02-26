@@ -51,7 +51,7 @@ git commit -m "Deploy to GitHub Pages: ${SHA}"
 git status
 
 chmod 600 ../deploy_key
-cp deploy_key ~/.ssh/id_rsa
+cp ../deploy_key ~/.ssh/id_rsa
 
 # Now that we're all set up, we can push.
 git push $SSH_REPO $TARGET_BRANCH
