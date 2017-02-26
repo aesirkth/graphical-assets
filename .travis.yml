@@ -4,7 +4,7 @@ env:
   - COMMIT_AUTHOR_EMAIL: eweilow@digitalkoppar.se
 node_js:
 - node
+script: bash ./deploy.sh
 before_install:
 - openssl aes-256-cbc -K $encrypted_258cee571ecc_key -iv $encrypted_258cee571ecc_iv
   -in deploy_key.enc -out deploy_key -d
-script: bash ./deploy.sh

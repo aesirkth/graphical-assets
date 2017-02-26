@@ -1,3 +1,5 @@
 build/
 node_modules/
 deploy_key
+secret.key
+secret.key.pub
