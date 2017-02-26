@@ -37,21 +37,23 @@ ls ./build
 # Now let's go have some fun with the cloned repo
 cd build
 echo "Files in /build"
-ls .
+ls ./
 git config user.name "Travis CI"
 git config user.email "$COMMIT_AUTHOR_EMAIL"
+
+
+# Commit the "changes", i.e. the new version.
+# The delta will show diffs between new and old versions.
+git status
+git add .
+git commit -m "Deploy to GitHub Pages: ${SHA}"
+git status
 
 # If there are no changes to the compiled out (e.g. this is a README update) then just bail.
 if [ -z `git diff --exit-code` ]; then
     echo "No changes to the output on this push; exiting."
     exit 0
 fi
-
-# Commit the "changes", i.e. the new version.
-# The delta will show diffs between new and old versions.
-ls .
-git add .
-git commit -m "Deploy to GitHub Pages: ${SHA}"
 
 chmod 600 ../deploy_key
 eval `ssh-agent -s`
