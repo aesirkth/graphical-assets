@@ -8,6 +8,7 @@ const transparentColor = "transparent";
 let colors = [
   {
     prefix: "dark",
+    description: "Use when a lot of color is needed.",
     background: primaryColor,
     foreground: whiteColor
   },
@@ -18,6 +19,7 @@ let colors = [
   },
   {
     prefix: "light",
+    description: "Use when the background needs to be white (or near white).",
     background: whiteColor,
     foreground: primaryColor
   },
@@ -28,6 +30,7 @@ let colors = [
   },
   {
     prefix: "grayscale_light",
+    description: "Use only in special cases where a grayscale logo is necessary.",
     background: whiteColor,
     foreground: grayscaleColor
   },
@@ -38,6 +41,7 @@ let colors = [
   },
   {
     prefix: "grayscale_dark",
+    description: "Use only in special cases where a grayscale logo is necessary.",
     background: grayscaleColor,
     foreground: whiteColor
   },
@@ -48,6 +52,7 @@ let colors = [
   },
   {
     prefix: "black",
+    description: "Use this one only when you absolutely need a black logo, it is not to be used in any other situation.",
     background: whiteColor,
     foreground: blackColor
   },

@@ -16,12 +16,13 @@ fs.readFile("./src/www/index.template.html")
   for(let file of fileVariants) {
     let typeVariants = [];
 
-    for(let { prefix, background, foreground } of colors) {
+    for(let { prefix, description, background, foreground } of colors) {
       if(prefix.indexOf("_transparent") >= 0) continue; //skip transparent variants
       
       let variant = {
         background: background,
         foreground: foreground,
+        description: description,
         svgPaths: {
           opaque: `${file.path}/aesir_${prefix}.svg`,
           transparent: `${file.path}/aesir_${prefix}_transparent.svg`
