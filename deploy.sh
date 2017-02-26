@@ -5,6 +5,7 @@ SOURCE_BRANCH="travis-ci"
 TARGET_BRANCH="gh-pages"
 
 function doCompile {
+  chmod +x ./compile.sh
   ./compile.sh
 }
 
