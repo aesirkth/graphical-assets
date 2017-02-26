@@ -1,0 +1,25 @@
+{
+  "name": "graphical-assets",
+  "version": "1.0.0",
+  "description": "The graphical assets of ÆSIR",
+  "main": "build.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aesirkth/graphical-assets.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/aesirkth/graphical-assets/issues"
+  },
+  "homepage": "https://github.com/aesirkth/graphical-assets#readme",
+  "private": true,
+  "dependencies": {
+    "mkdirp": "^0.5.1",
+    "mz": "^2.6.0",
+    "svg2png": "^4.1.1"
+  }
+}
