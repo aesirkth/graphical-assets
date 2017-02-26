@@ -28,14 +28,16 @@ cd build
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 cd ..
 
-# Clean out existing contents
-rm -rf build/**/* || exit 0
-
 doCompile
 
+echo "Files in root"
 ls .
+echo "Files in /build"
+ls ./build
 # Now let's go have some fun with the cloned repo
 cd build
+echo "Files in /build"
+ls .
 git config user.name "Travis CI"
 git config user.email "$COMMIT_AUTHOR_EMAIL"
 
