@@ -43,6 +43,11 @@ let colors = [
     foreground: whiteColor
   },
   {
+    prefix: "grayscale_dark_transparent",
+    background: transparentColor,
+    foreground: whiteColor
+  },
+  {
     prefix: "black",
     background: whiteColor,
     foreground: blackColor
@@ -67,12 +72,12 @@ Runner.buildFile(
   colors,
   widths
 ).then(() => {
-  Runner.buildFile(
+  return Runner.buildFile(
     "./src/aesir_square.svg",
     "./build/square",
     colors,
     widths
-  )
+  );
 })
 .catch(err => {
   console.error(err);
