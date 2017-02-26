@@ -58,9 +58,7 @@ const widths = [
   125,
   250,
   500,
-  1000,
-  2000,
-  4000
+  1000
 ];
 
 Runner.buildFile(
