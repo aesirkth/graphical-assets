@@ -47,12 +47,13 @@ git config user.email "$COMMIT_AUTHOR_EMAIL"
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.
 git add -A
-git commit -m "Deploy to GitHub Pages: ${SHA}"
-
 if git diff --quiet ; then
     echo "No changes to the output on this push; exiting."
     exit 0
 fi
+
+git commit -m "Deploy to GitHub Pages: ${SHA}"
+
 
 chmod 600 ../deploy_key
 cp ../deploy_key ~/.ssh/id_rsa
