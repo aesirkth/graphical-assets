@@ -1,20 +1,21 @@
+const path = require("path");
 const Runner = require("./runner");
+const { colors, widths, fileVariants } = require("./configuration");
 
-const { colors, widths } = require("./configuration");
 
-Runner.buildFile(
-  "./src/aesir.svg",
-  "./build/standard",
-  colors,
-  widths
-).then(() => {
-  return Runner.buildFile(
-    "./src/aesir_square.svg",
-    "./build/square",
-    colors,
-    widths
-  );
-})
+let promise = Promise.resolve();
+for(let fileVariant of fileVariants) {
+  promise = promise.then(() => {
+    return Runner.buildFile(
+      fileVariant.source,
+      path.join("./build", fileVariant.path),
+      colors,
+      widths
+    );
+  })
+}
+
+return promise
 .catch(err => {
   console.error(err);
 });

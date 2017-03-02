@@ -65,15 +65,24 @@ let colors = [
 
 const fileVariants = [
   {
+    source: "./src/aesir.svg",
     class: "",
     title: "Standard logos",
     path: "/standard",
     margin: 20
   },
   {
+    source: "./src/aesir_square.svg",
     class: "square",
     title: "Avatar logos",
     path: "/square",
+    margin: 0
+  },
+  {
+    source: "./src/aesir_rocket.svg",
+    class: "rocket",
+    title: "Rocket logos",
+    path: "/rocket",
     margin: 0
   }
 ];
