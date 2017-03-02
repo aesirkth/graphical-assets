@@ -69,6 +69,7 @@ const fileVariants = [
     class: "",
     title: "Standard logos",
     path: "/standard",
+    key: "standard",
     margin: 20
   },
   {
@@ -76,6 +77,7 @@ const fileVariants = [
     class: "square",
     title: "Avatar logos",
     path: "/square",
+    key: "square",
     margin: 0
   },
   {
@@ -83,6 +85,7 @@ const fileVariants = [
     class: "rocket",
     title: "Rocket logos",
     path: "/rocket",
+    key: "rocket",
     margin: 0
   }
 ];

@@ -8,6 +8,7 @@ for(let fileVariant of fileVariants) {
   promise = promise.then(() => {
     return Runner.buildFile(
       fileVariant.source,
+      fileVariant.key,
       path.join("./build", fileVariant.path),
       colors,
       widths

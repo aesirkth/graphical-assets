@@ -24,8 +24,8 @@ fs.readFile("./src/www/index.template.html")
         foreground: foreground,
         description: description,
         svgPaths: {
-          opaque: `${file.path}/aesir_${prefix}.svg`,
-          transparent: `${file.path}/aesir_${prefix}_transparent.svg`
+          opaque: `${file.path}/aesir_${file.key}_${prefix}.svg`,
+          transparent: `${file.path}/aesir_${file.key}_${prefix}_transparent.svg`
         }, //with opaque background
         opaquePaths: [], //with opaque background
         transparentPaths: [] //with transparent background
@@ -33,11 +33,11 @@ fs.readFile("./src/www/index.template.html")
       for(let width of widths) {
         variant.opaquePaths.push({
           title: `${width}px`,
-          path: `${file.path}/${width}px/aesir_${prefix}_${width}px.png`
+          path: `${file.path}/${width}px/aesir_${file.key}_${prefix}_${width}px.png`
         });
         variant.transparentPaths.push({
           title: `${width}px`,
-          path: `${file.path}/${width}px/aesir_${prefix}_transparent_${width}px.png`
+          path: `${file.path}/${width}px/aesir_${file.key}_${prefix}_transparent_${width}px.png`
         });
       }
       typeVariants.push(variant);

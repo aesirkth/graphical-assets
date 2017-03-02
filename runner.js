@@ -25,6 +25,7 @@ class Runner {
 
   static readAndColorize(
     filename = "./src/file.svg", 
+    title = "standard",
     configuration = [ { prefix: "", foreground: "#fff", background: "#000" } ]
   ) {
     return fs.readFile(filename)
@@ -36,7 +37,7 @@ class Runner {
       for(let { prefix, foreground, background } of configuration) {
         console.log(`  new color: ${prefix} (F: ${foreground}, B: ${background})`);
         colorizedFiles.push({
-          prefix: `aesir_${prefix}`,
+          prefix: `aesir_${title}_${prefix}`,
           source: stringified.replace("#000099", "/*foreground*/").replace("#FFFFFF", "/*background*/").replace("/*foreground*/", foreground).replace("/*background*/", background)
         });
       }
@@ -84,7 +85,7 @@ class Runner {
 
   static saveSVGs(
     buildDirectory = "./build", 
-    files = [ { prefix: "", source: "", result: "" } ]) {
+    files = [ { title: "", prefix: "", source: "", result: "" } ]) {
       console.log("Saving SVGs");
       let completed = 0;
       return Promise.all(
@@ -103,12 +104,13 @@ class Runner {
   
   static buildFile(
     filename = "./src/file.svg", 
+    title = "standard",
     buildDirectory = "./build", 
     configuration = [ { prefix: "", foreground: "#fff", background: "#000" } ], 
     widths = [ 100 ]) {
       return Runner.createDirectories(buildDirectory, widths)
       .then(() => {
-        return Runner.readAndColorize(filename, configuration);
+        return Runner.readAndColorize(filename, title, configuration);
       })
       .then((files) => {
         return Runner.saveSVGs(buildDirectory, files);
