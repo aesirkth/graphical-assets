@@ -18,6 +18,8 @@
   "homepage": "https://github.com/aesirkth/graphical-assets#readme",
   "private": true,
   "dependencies": {
+    "fs-extra": "^2.0.0",
+    "handlebars": "^4.0.6",
     "mkdirp": "^0.5.1",
     "mz": "^2.6.0",
     "svg2png": "^4.1.1"

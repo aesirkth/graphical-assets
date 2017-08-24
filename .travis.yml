@@ -1,0 +1,13 @@
+language: node_js
+env:
+  global:
+  - COMMIT_AUTHOR_EMAIL: eweilow@digitalkoppar.se
+node_js:
+- node
+script: bash ./deploy.sh
+before_install:
+- openssl aes-256-cbc -K $encrypted_258cee571ecc_key -iv $encrypted_258cee571ecc_iv
+  -in deploy_key.enc -out deploy_key -d
+notifications:
+  slack:
+    secure: gqR8lPfgLAxhK9tZUueWCxEaq0Q3t4FCR/qGTJVfuS0hRXP4t5FBOvPbm3Zhh78iKjMQASi6Ted1Ck/d7QLfSm4cJ/xL/EY/fDnHvB/E8dAoJEpwEkyXDwtMotTBYQRCxvQiD3yxOFGkUSb2kdejIWKOftO+7BEJma1D+bcOeYi9luPVOkF+zn1F+PoA4iBUXo/9rAo+bisqfS0JPje6QWMM9RYbT+CCFx9gCHBTfgVT77ThIgY3MY5xxU71swElSP+d6I+zV9DotOi/tT1s8NdbS5SS5TuXmK2oOC/LHKWrKpZMEMUT3heEhNhs9TUcAjJV1Snt5kSQSWPgRyCmjOYD5vOP8kcE1RSqoeqNPWU3AqOni3SSa+DSXKdy5tEsbdcVeDBz4KYJsMScz2mSX4UHVomrqIIkn0+gN++SElt2GfYux0ztntPKgvF6KzAo+2uLMyYe3N6igPof7YbVw8ppkSA7SJ7SXqwIU5yLcvxNmT8HwrpKdDFo8dVTCy0tcKVc5I7D0V7NYjr8MJuxhEYyvZitGSObZSQq5aBm2oQD6WGYlFjGcuPAKP/wFItecz0r5cfRtVW1fC13JIq8aZBhY9D7cBXiEeWtoe1zhz6bhdMkQmtEMp09yISxjIVpTiZ6PWCnPFY9mL2jIC7rM6FdDdL4TB+xVOJN/nH2FfA=

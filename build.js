@@ -1,81 +1,22 @@
+const path = require("path");
 const Runner = require("./runner");
+const { colors, widths, fileVariants } = require("./configuration");
 
-const grayscaleColor = "#383838";
-const primaryColor = "#37109F";
-const whiteColor = "#ffffff";
-const blackColor = "#000000";
-const transparentColor = "transparent";
 
-let colors = [
-  {
-    prefix: "dark",
-    background: primaryColor,
-    foreground: whiteColor
-  },
-  {
-    prefix: "dark_transparent",
-    background: transparentColor,
-    foreground: whiteColor
-  },
-  {
-    prefix: "light",
-    background: whiteColor,
-    foreground: primaryColor
-  },
-  {
-    prefix: "light_transparent",
-    background: transparentColor,
-    foreground: primaryColor
-  },
-  {
-    prefix: "grayscale_light",
-    background: whiteColor,
-    foreground: grayscaleColor
-  },
-  {
-    prefix: "grayscale_light_transparent",
-    background: transparentColor,
-    foreground: grayscaleColor
-  },
-  {
-    prefix: "grayscale_dark",
-    background: grayscaleColor,
-    foreground: whiteColor
-  },
-  {
-    prefix: "black",
-    background: whiteColor,
-    foreground: blackColor
-  },
-  {
-    prefix: "black_transparent",
-    background: transparentColor,
-    foreground: blackColor
-  }
-];
+let promise = Promise.resolve();
+for(let fileVariant of fileVariants) {
+  promise = promise.then(() => {
+    return Runner.buildFile(
+      fileVariant.source,
+      fileVariant.key,
+      path.join("./build", fileVariant.path),
+      colors,
+      fileVariant.widths || widths
+    );
+  })
+}
 
-const widths = [
-  125,
-  250,
-  500,
-  1000,
-  2000,
-  4000
-];
-
-Runner.buildFile(
-  "./src/aesir.svg",
-  "./build/standard",
-  colors,
-  widths
-).then(() => {
-  Runner.buildFile(
-    "./src/aesir_square.svg",
-    "./build/square",
-    colors,
-    widths
-  )
-})
+return promise
 .catch(err => {
   console.error(err);
 });
