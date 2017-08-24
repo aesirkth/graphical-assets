@@ -81,6 +81,24 @@ const fileVariants = [
     margin: 0
   },
   {
+    source: "./src/aesir_video.svg",
+    class: "",
+    title: "For use in videos",
+    path: "/videos",
+    key: "video",
+    margin: 0,
+    widths: [ 1280, 1920, 3840 ]
+  },
+  {
+    source: "./src/aesir_presentation_top.svg",
+    class: "",
+    title: "For use in presentations as background",
+    path: "/presentation",
+    key: "presentation",
+    margin: 0,
+    widths: [ 1280, 1920, 3840 ]
+  },
+  {
     source: "./src/aesir_rocket.svg",
     class: "rocket",
     title: "Rocket logos",

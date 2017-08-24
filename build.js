@@ -11,7 +11,7 @@ for(let fileVariant of fileVariants) {
       fileVariant.key,
       path.join("./build", fileVariant.path),
       colors,
-      widths
+      fileVariant.widths || widths
     );
   })
 }
