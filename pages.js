@@ -16,6 +16,8 @@ fs.readFile("./src/www/index.template.html")
   for(let file of fileVariants) {
     let typeVariants = [];
 
+    const useWidths = file.widths || widths;
+
     for(let { prefix, description, background, foreground } of colors) {
       if(prefix.indexOf("_transparent") >= 0) continue; //skip transparent variants
       
@@ -30,7 +32,8 @@ fs.readFile("./src/www/index.template.html")
         opaquePaths: [], //with opaque background
         transparentPaths: [] //with transparent background
       }
-      for(let width of widths) {
+
+      for(let width of useWidths) {
         variant.opaquePaths.push({
           title: `${width}px`,
           path: `${file.path}/${width}px/aesir_${file.key}_${prefix}_${width}px.png`
